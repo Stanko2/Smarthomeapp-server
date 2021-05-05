@@ -1,5 +1,5 @@
 import { v4 as uuid } from 'uuid';
-const db = require('./Database');
+import {db} from './Database';
 
 export type User = {
     uid: string,
