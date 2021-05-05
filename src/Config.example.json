@@ -1,0 +1,23 @@
+{
+  // port na ktorom ma server pocuvat
+  "Port": 8000,
+  // adresa na ktorej ma server pocuvat
+  "Address": "192.168.0.1",
+  // ma sa pouzivat autentifikacia - potrebuju pouzivatelia kluc na interagovanie so zariadeniami
+  "enableAuth": true, 
+  // url pre pripojenie do databazy - malo by byt nieco typu "mongodb://[meno]:[heslo]@localhost:27017/"
+  "databaseUrl": "",
+  "Modules": [
+    {
+      // meno tu musi byt zhodne s menom priecinku a hlavneho skriptu daneho modulu
+      "name": "myModule",
+      // jednoduche vypinanie / zapinanie modulov
+      "enabled": true,
+      // objekt urceny na uchovavanie roznych konfiguracnych premennych pre dany modul
+      // tieto premenne sa dostanu ako props do konstuktora modulu
+      "options": {
+
+      }
+    }
+  ]
+}

@@ -56,7 +56,7 @@ export class ModuleLoader{
 
     async getDeviceById(id:number): Promise<Device>{
         let devices = await this.getAllDevices();
-        let device = devices.find(e=> e.id == id);
+        let device = devices.find(e => e.id == id);
         return device;
     }
 
@@ -64,5 +64,3 @@ export class ModuleLoader{
         return this.modules.find(e=>e.name == name);
     }
 }
-
-//module .exports = ModuleLoader;

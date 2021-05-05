@@ -64,7 +64,7 @@ class Klima extends Module{
 
     async initialize(props: any) {
         
-        this.command = spawn('python3', [join(__dirname, 'Klima.py'), 'listen'], {env: props });
+        this.command = spawn('python3', [join(__dirname, 'Klima.py'), 'listen'], {env: props, cwd: __dirname});
         this.devices = [];
         this.initHandlers();
         setTimeout(()=>this.initDevices().then(() => this.log('devices initialized')), 3000)
@@ -72,7 +72,7 @@ class Klima extends Module{
 
     async initDevices(){
         await this.makeRequest('list');
-        this.parseDevices(require('../../result.json'));
+        this.parseDevices(require('./result.json'));
         setInterval(()=>this.updateDevices(), 10000);
     }
 
@@ -111,7 +111,7 @@ class Klima extends Module{
     async updateDevices(){
         if(Date.now() - this.lastRequest > 10000) {
             await this.makeRequest('list');
-            this.parseDevices(require('../../result.json'));
+            this.parseDevices(require('./result.json'));
         }
     }
 

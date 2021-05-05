@@ -6,6 +6,7 @@ import * as Timer from "./Timers";
 import {grantPermission, hasPermission, login, registerUser, setNickname, startUser, User, userExist} from "./auth";
 import {Application, Router} from "express";
 import {GroupManager} from "./GroupManager";
+import {join} from 'path';
 
 const localIpRegex = '(^127\\.)|\n' +
     '(^10\\.)|\n' +
@@ -26,6 +27,7 @@ class App{
         this.app.use(cors());
         this.app.options('*', cors());
         this.app.use(bodyparser.json());
+        this.app.use(express.static(join(__dirname, 'static')));
         this.moduleController = new ModuleLoader();
         this.initializeAuth();
         this.registerHandlers();
@@ -33,7 +35,7 @@ class App{
         this.app.use('/api', this.mainHandler);
         this.mainHandler.use('/groups', this.groups.router);
         this.app.listen(config.Port, config.Address, ()=>{
-            console.log("app listening");
+            console.log(`app listening at http://${config.Address}:${config.Port}/`);
         });
     }
 
