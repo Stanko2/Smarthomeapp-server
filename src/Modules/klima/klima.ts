@@ -61,9 +61,9 @@ class Klima extends Module{
     data: any;
     command: ChildProcessWithoutNullStreams;
     lastRequest: number = 0;
-
+    private props:any;
     async initialize(props: any) {
-        
+        this.props = props;
         this.command = spawn('python3', [join(__dirname, 'Klima.py'), 'listen'], {env: props, cwd: __dirname});
         this.devices = [];
         this.initHandlers();
@@ -103,7 +103,7 @@ class Klima extends Module{
             this.log('Air conditioning controller crashed. Restarting ...');
             Klima.started = false;
             this.command.removeAllListeners();
-            this.command = spawn('python3', [join(__dirname, 'klima.py'), 'listen']);
+            this.command = spawn('python3', [join(__dirname, 'klima.py'), 'listen'], {env: this.props, cwd: __dirname});
             this.initHandlers();
         });
     }
