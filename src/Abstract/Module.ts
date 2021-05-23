@@ -1,6 +1,6 @@
 import {Device} from "./Device";
 import {EventEmitter} from "events";
-const db = require('../Database');
+import {db} from '../Database';
 
 export abstract class Module{
     protected devices: Device[];
@@ -19,9 +19,9 @@ export abstract class Module{
 
     }
 
-    abstract async initialize(args: any);
+    abstract initialize(args: any);
 
-    abstract async getDevices(): Promise<Device[]>;
+    abstract getDevices(): Promise<Device[]>;
 
     async getDevicesRequest(): Promise<any>{
         let ret = [];
@@ -44,9 +44,14 @@ export abstract class Module{
                     newStatus[e] = dbStatus.props[e];
                 }
             });
-            let dev = await this.setDevice(device, newStatus);
-            await db.devices.updateOne({id: device.id}, {$set: {props: newStatus}});
-            return dev.toObject();
+            try{
+                let dev = await this.setDevice(device, newStatus);
+                await db.devices.updateOne({id: device.id}, {$set: {props: newStatus}});
+                return dev.toObject();
+            }
+            catch(err){
+                this.log(err);
+            }
         }
         this.log(`Device ${newStatus.id} turned off, setting new state in database`);
         Object.keys(device.props).forEach(e=>{
@@ -58,7 +63,7 @@ export abstract class Module{
         return await db.devices.findOne({id: device.id});
     }
 
-    abstract async setDevice(device: Device, newStatus: any): Promise<Device>;
+    abstract setDevice(device: Device, newStatus: any): Promise<Device>;
 
     findDeviceById(id:number): Device{
         return this.devices.find(e=> e.id === id) as Device;

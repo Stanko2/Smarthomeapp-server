@@ -22,7 +22,7 @@ export class DeviceGroup {
         for (let i = 0; i < this.devices.length; i++){
             let e = this.devices[i];
             if(this.devices[i].controller == null){
-                let dev = await api.moduleController.getDeviceById(e.id);
+                let dev = await api.moduleController.getDeviceById(e.id || e);
                 if(dev == null) continue;
                 else this.devices[i] = dev;
                 e = dev;

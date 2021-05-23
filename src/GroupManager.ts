@@ -82,7 +82,13 @@ export class GroupManager {
         });
         this.router.post('/:id/:typeId', async (req, res) => {
             let grp = this.groups.find(e=>e.id == parseInt(req.params.id));
-            await grp.toggle(parseInt(req.params.typeId));
+            if(req.body.props == null){
+                await grp.toggle(parseInt(req.params.typeId));
+            }
+            else{
+                await grp.setStatus(parseInt(req.params.typeId),req.body.props);
+            }
+            
             res.send({status: 'ok'});
         });
     }

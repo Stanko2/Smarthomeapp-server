@@ -54,7 +54,7 @@ export class ModuleLoader{
         return device.controller;
     }
 
-    async getDeviceById(id:number): Promise<Device>{
+    async getDeviceById(id): Promise<Device>{
         let devices = await this.getAllDevices();
         let device = devices.find(e => e.id == id);
         return device;
