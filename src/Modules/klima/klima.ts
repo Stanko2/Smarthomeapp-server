@@ -95,7 +95,7 @@ class Klima extends Module{
             if(data.includes('READY')){
                 this.busy = false;
             }
-        });
+    });
         this.command.stderr.on('data', (data) => {
             this.log(`child stderr:\n${data}`);
         });
@@ -103,7 +103,7 @@ class Klima extends Module{
             this.log('Air conditioning controller crashed. Restarting ...');
             Klima.started = false;
             this.command.removeAllListeners();
-            this.command = spawn('python3', [join(__dirname, 'klima.py'), 'listen'], {env: this.props, cwd: __dirname});
+            this.command = spawn('python3', [join(__dirname, 'Klima.py'), 'listen'], {env: this.props, cwd: __dirname});
             this.initHandlers();
         });
     }
