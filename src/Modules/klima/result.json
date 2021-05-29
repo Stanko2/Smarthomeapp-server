@@ -11,7 +11,7 @@
         "swingMode": 0,
         "eco": false,
         "turbo": false,
-        "timestamp": 1621369417398,
+        "timestamp": 1622279334614,
         "type": 1
     },
     "18691697782828": {
@@ -26,7 +26,7 @@
         "swingMode": 0,
         "eco": false,
         "turbo": false,
-        "timestamp": 1621369417398,
+        "timestamp": 1622279334614,
         "type": 1
     },
     "18691697783644": {
@@ -41,7 +41,7 @@
         "swingMode": 0,
         "eco": false,
         "turbo": false,
-        "timestamp": 1621369417398,
+        "timestamp": 1622279334614,
         "type": 1
     },
     "18691697783155": {
@@ -56,22 +56,22 @@
         "swingMode": 0,
         "eco": false,
         "turbo": false,
-        "timestamp": 1621369417398,
+        "timestamp": 1622279334614,
         "type": 1
     },
     "18691697783049": {
         "id": 18691697783049,
         "name": "Ob\u00fdva\u010dka",
         "isOn": false,
-        "targetTemp": 17,
-        "outdoorTemp": 0.0,
-        "indoorTemp": 0.0,
+        "targetTemp": 24,
+        "outdoorTemp": 17.5,
+        "indoorTemp": 22.5,
         "mode": 4,
         "fanSpeed": 3,
         "swingMode": 0,
         "eco": false,
         "turbo": false,
-        "timestamp": 1621369417398,
+        "timestamp": 1622279334614,
         "type": 1
     },
     "18691697783147": {
@@ -86,7 +86,7 @@
         "swingMode": 0,
         "eco": false,
         "turbo": false,
-        "timestamp": 1621369417399,
+        "timestamp": 1622279334614,
         "type": 1
     }
 }

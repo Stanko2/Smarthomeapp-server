@@ -13,7 +13,9 @@ class Tradfri extends Module{
         this.securityKey = props.securityKey;
         this.lights = {};
         this.devices = [];
-        await this.connect()
+        await this.connect().catch(err=>{
+            console.log(err);
+        });
         this.log('Connected to gateway')
     }
 

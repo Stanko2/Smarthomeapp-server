@@ -36,9 +36,13 @@ export abstract class Device{
         this.readOnlyProps = {};
     }
 
-    public abstract getStatus(): any;
+    public getStatus(): any{
+        return this.props;
+    };
 
-    public abstract setStatus(newStatus: any): void;
+    public setStatus(newStatus: any): void{
+        this.controller.setDeviceRequest(this, newStatus);
+    }
 
     public abstract update(props: any): void;
 

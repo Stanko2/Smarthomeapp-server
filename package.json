@@ -25,7 +25,8 @@
     "tslint": "^5.12.1"
   },
   "scripts": {
-    "test": "ts-node ./src/App.ts"
+    "test": "ts-node ./src/App.ts",
+    "start": "ts-node ./src/App.ts"
   },
   "author": "",
   "license": "ISC"

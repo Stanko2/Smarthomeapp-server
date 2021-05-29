@@ -42,39 +42,6 @@ class CustomDevice extends Device{
         this.color = Color({r: 255, g: 255, b: 255});
     }
 
-
-
-    getStatus(): any {
-    }
-
-    setStatus(newStatus: any): void {
-        this.controller.setDevice(this, newStatus);
-    }
-
-    // toObject(): any {
-    //     this.getControls();
-    //     return {
-    //         id: this.id,
-    //         isOn: this.isOn,
-    //         name: this.name,
-    //         updated: this.updatedAt,
-    //         props: {
-    //             range: this.range,
-    //             switch: this.switch,
-    //             number: this.number,
-    //             dropdown: this.dropdown,
-    //             color: {
-    //                 r: this.color.red(),
-    //                 g: this.color.green(),
-    //                 b: this.color.blue()
-    //             }
-    //         },
-    //         type: 2,
-    //         online: this.online,
-    //         controlsHeight: this.controlsHeight,
-    //     }
-    // }
-
     update(props: any): void {
         this.number = props.number;
         this.switch = props.switch;
